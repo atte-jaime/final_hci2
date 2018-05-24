@@ -48,17 +48,19 @@ addToDom = function () {
 
         var seccion_pregunta = document.createElement('section');
         seccion_pregunta.className = 'pregunta';
-        seccion_pregunta.innerHTML = 
-            
+        seccion_pregunta.innerHTML =
+            "<div class= 'preguntas-container'>" +
             "<ul><li>Pregunta: " + pregunta + "</li>" +
             "<li>vargas: " + vargas + "</li>" +
             "<li>calle: " + calle + "</li>" +
             "<li>Fajardo: " + fajardo + "</li>" +
             "<li>Petro: " + petro + "</li>" +
             "<li>Duque: " + duque + "</li>" +
-            "</ul>"+
+            "</ul>" + "</div>" +
+            "<div class= 'buttons-container'>" +
             "<button onclick= 'sumarD()' class= 'desagree'>Desacuerdo</button>" +
-            "<button onclick= 'sumarA()' class= 'agree'>De acuerdo</button>";
+            "<button onclick= 'sumarA()' class= 'agree'>De acuerdo</button>" +
+           "</div>";
         //El innerHtml remplaza lo que tenga previamente el elemento (body para este caso), por ende solo veran la lista de los ultimos del ciclo. Para hacer buen uso de eso les recomiendo utilizar los appends y no innerHtml, pero ya es el gusto de cada quien.
         document.getElementById("domBody").appendChild(seccion_pregunta);
     }

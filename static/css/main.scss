@@ -1,0 +1,28 @@
+body,
+html,
+div,
+section,
+p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.pregunta {
+    border: 3px red solid;
+    position: relative;
+    margin: 5% auto;
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column nowrap;
+    .preguntas-container {
+        border: 3px red solid;
+    }
+    .buttons-container {
+        display: flex;
+        justify-content: space-around;
+        border: 3px red solid;
+    }
+}
