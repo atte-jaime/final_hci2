@@ -1,0 +1,6 @@
+   function sumarA() {
+   }
+
+   function sumarD() {
+
+   }

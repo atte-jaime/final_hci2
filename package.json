@@ -1,0 +1,12 @@
+{
+  "name": "final_hci2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Jaime Giraldo & Julio Echeverry",
+  "license": "ISC",
+  "dependencies": {}
+}
