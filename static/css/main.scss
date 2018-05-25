@@ -8,6 +8,11 @@ p {
     box-sizing: border-box;
 }
 
+#temas{
+    display: flex;
+    justify-content: space-around;
+}
+
 .pregunta {
     border: 3px red solid;
     position: relative;

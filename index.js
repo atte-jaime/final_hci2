@@ -20,13 +20,21 @@ var temas = [
 var addTemas = function () {
     for (i = 0; i < temas.length; i++) {
         const element = temas[i];
-        var tema = document.createElement('li');
-        tema.className = 'addImpor('+i+')';
-        tema.innerHTML = element;
+        var tema = document.createElement("li");
+        tema.innerHTML = "<a href='#' onclick='addImport("+i+")'>"+element+" < /a>";
         document.querySelector("#temas .temas ol").appendChild(tema);
     }
 
 };
+
+function addImport(a) { 
+    importancia.push(temas[a]);
+    //console.log("TAMAÑO DEL ARRAY "+importancia);
+    
+    var tema = document.createElement("li");
+    tema.innerHTML = temas[a];
+    document.querySelector("#temas .importancia ol").appendChild(tema);
+}
 
 
 function sumarA() {
