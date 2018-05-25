@@ -21,7 +21,7 @@ var addTemas = function () {
     for (i = 0; i < temas.length; i++) {
         const element = temas[i];
         var tema = document.createElement("li");
-        tema.innerHTML = "<a href='#' onclick='addImport("+i+")'>"+element+" < /a>";
+        tema.innerHTML = "<a href='#' onclick='addImport("+i+")'>"+element+" </a>";
         document.querySelector("#temas .temas ol").appendChild(tema);
     }
 
@@ -34,6 +34,13 @@ function addImport(a) {
     var tema = document.createElement("li");
     tema.innerHTML = temas[a];
     document.querySelector("#temas .importancia ol").appendChild(tema);
+
+    
+    //console.log("ESTOY SELECCIONANDO " + document.querySelector("#temas .temas ol").getElementsByTagName("li"));
+
+    var ocultar = document.querySelector("#temas .temas ol").getElementsByTagName("li")[a].style.visibility = "hidden";
+
+    console.log("ESTOY SELECCIONANDO " + ocultar);
 }
 
 
