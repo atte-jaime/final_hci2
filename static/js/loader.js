@@ -53,8 +53,8 @@ addToDom = function () {
         afinidadLleras.push(vargas);
         afinidadPetro.push(petro);
 
-        var seccion_pregunta = document.createElement('section');
-        seccion_pregunta.className = 'pregunta';
+        var seccion_pregunta = document.createElement('div');
+        seccion_pregunta.className = 'section pregunta';
         seccion_pregunta.innerHTML = `
         <div class= "preguntas-container">
             <ul>
@@ -69,7 +69,7 @@ addToDom = function () {
         `;
         
         //El innerHtml remplaza lo que tenga previamente el elemento (body para este caso), por ende solo veran la lista de los ultimos del ciclo. Para hacer buen uso de eso les recomiendo utilizar los appends y no innerHtml, pero ya es el gusto de cada quien.
-        document.getElementById("domBody").appendChild(seccion_pregunta);
+        document.getElementById("fullpage").appendChild(seccion_pregunta);
     }
 
 
