@@ -54,7 +54,7 @@ addToDom = function () {
         afinidadPetro.push(petro);
 
         var seccion_pregunta = document.createElement('div');
-        seccion_pregunta.className = 'pregunta';
+        seccion_pregunta.className = 'section pregunta';
         seccion_pregunta.innerHTML = `
         <div class= "preguntas-container">
             <ul>
@@ -90,14 +90,14 @@ addToDom = function () {
     hacerSumatorias();
 
     var seccion_resultado = document.createElement('section');
-    seccion_resultado.className = 'resultado';
+    seccion_resultado.className = 'section resultado';
     seccion_resultado.innerHTML = `
     <div class= "resultado-container">
         <button class= "resultado">RESULTADO</button>
     </div>
     `;
 
-    document.getElementById("domBody").appendChild(seccion_resultado);
+    document.getElementById("fullpage").appendChild(seccion_resultado);
 
     var resultado = document.querySelector('.resultado');
         resultado.addEventListener('click', () => {
