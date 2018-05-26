@@ -11,14 +11,17 @@ p {
 #temas{
     display: flex;
     justify-content: space-around;
+    align-content: center;
+    width: 100vw;
+    height: 100vh;
 }
 
 .pregunta {
     border: 3px red solid;
     position: relative;
     margin: 5% auto;
-    width: 80vw;
-    height: 80vh;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: space-around;
     flex-flow: column nowrap;

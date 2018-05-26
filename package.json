@@ -8,5 +8,7 @@
   },
   "author": "Jaime Giraldo & Julio Echeverry",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "fullpage.js": "^2.9.7"
+  }
 }

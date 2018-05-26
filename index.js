@@ -16,6 +16,9 @@ var temas = [
     "TIC"
 ];
 
+$(document).ready(function () {
+    $('#fullpage').fullpage();
+});
 
 var addTemas = function () {
     for (i = 0; i < temas.length; i++) {
@@ -34,10 +37,7 @@ function addImport(a) {
     var tema = document.createElement("li");
     tema.innerHTML = temas[a];
     document.querySelector("#temas .importancia ol").appendChild(tema);
-
     
-    //console.log("ESTOY SELECCIONANDO " + document.querySelector("#temas .temas ol").getElementsByTagName("li"));
-
     var ocultar = document.querySelector("#temas .temas ol").getElementsByTagName("li")[a].style.visibility = "hidden";
 
     console.log("ESTOY SELECCIONANDO " + ocultar);
@@ -56,3 +56,4 @@ function sumarD() {
 }
 
 addTemas();
+
