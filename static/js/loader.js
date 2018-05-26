@@ -54,7 +54,7 @@ addToDom = function () {
         afinidadPetro.push(petro);
 
         var seccion_pregunta = document.createElement('div');
-        seccion_pregunta.className = 'section pregunta';
+        seccion_pregunta.className = 'pregunta';
         seccion_pregunta.innerHTML = `
         <div class= "preguntas-container">
             <ul>
