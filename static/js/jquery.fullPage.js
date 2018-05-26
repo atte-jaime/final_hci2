@@ -1917,7 +1917,7 @@
 
                 //End
                 case 35:
-                     if(isScrollAllowed.k.down){
+                    if(isScrollAllowed.k.down){
                         moveTo( $(SECTION_SEL).length );
                     }
                     break;
@@ -2537,10 +2537,10 @@
                 prefix = 'on';
             }
 
-             // detect available wheel event
+            // detect available wheel event
             var support = 'onwheel' in document.createElement('div') ? 'wheel' : // Modern browsers support "wheel"
-                      document.onmousewheel !== undefined ? 'mousewheel' : // Webkit and IE support at least "mousewheel"
-                      'DOMMouseScroll'; // let's assume that remaining browsers are older Firefox
+                    document.onmousewheel !== undefined ? 'mousewheel' : // Webkit and IE support at least "mousewheel"
+                    'DOMMouseScroll'; // let's assume that remaining browsers are older Firefox
 
 
             if(support == 'DOMMouseScroll'){
@@ -2916,7 +2916,7 @@
         * Shows a message in the console of the given type.
         */
         function showError(type, text){
-            console && console[type] && console[type]('fullPage: ' + text);
+            //console && console[type] && console[type]('fullPage: ' + text);
         }
 
     }; //end of $.fn.fullpage

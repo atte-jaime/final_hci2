@@ -48,6 +48,9 @@ var temasImportantes = [
     "tecnologia"
 ];
 
+$(document).ready(function () {
+    $('#fullpage').fullpage();
+});
 
 var addTemas = function () {
     for (i = 0; i < temas.length; i++) {
@@ -88,50 +91,50 @@ function hacerSumatorias(){
     for (index = 0; index < afinidadFajardo.length; index++) {
         if (afinidadFajardo[index] >= 2)
             sumatoriaFajardo += afinidadFajardo[index];
-        /*else if (afinidadFajardo[num] == 1)
-            sumatoriaFajardo += 3;
-        else if (afinidadFajardo[num] == 0)
-            sumatoriaFajardo += 4;*/
+        else if (afinidadFajardo[index] == 1)
+            sumatoriaFajardo += 2;
+        else if (afinidadFajardo[index] == 0)
+            sumatoriaFajardo += 1;
     }
 
         //DUQUE
         for (index = 0; index < afinidadDuque.length; index++) {
             if (afinidadDuque[index] >= 2)
                 sumatoriaDuque += afinidadDuque[index];
-            /*else if (afinidadFajardo[num] == 1)
-                sumatoriaFajardo += 3;
-            else if (afinidadFajardo[num] == 0)
-                sumatoriaFajardo += 4;*/
+            else if (afinidadFajardo[index] == 1)
+                sumatoriaFajardo += 2;
+            else if (afinidadFajardo[index] == 0)
+                sumatoriaFajardo += 1;
         }
 
         //CALLE
         for (index = 0; index < afinidadCalle.length; index++) {
             if (afinidadCalle[index] >= 2)
                 sumatoriaCalle += afinidadDuque[index];
-            /*else if (afinidadFajardo[num] == 1)
-                sumatoriaFajardo += 3;
-            else if (afinidadFajardo[num] == 0)
-                sumatoriaFajardo += 4;*/
+            else if (afinidadFajardo[index] == 1)
+                sumatoriaFajardo += 2;
+            else if (afinidadFajardo[index] == 0)
+                sumatoriaFajardo += 1;
         }
 
         //LLERAS
         for (index = 0; index < afinidadLleras.length; index++) {
             if (afinidadLleras[index] >= 2)
                 sumatoriaLleras += afinidadLleras[index];
-            /*else if (afinidadFajardo[num] == 1)
-                sumatoriaFajardo += 3;
-            else if (afinidadFajardo[num] == 0)
-                sumatoriaFajardo += 4;*/
+            else if (afinidadFajardo[index] == 1)
+                sumatoriaFajardo += 2;
+            else if (afinidadFajardo[index] == 0)
+                sumatoriaFajardo += 1;
         }
 
         //PETRO
         for (index = 0; index < afinidadPetro.length; index++) {
             if (afinidadPetro[index] >= 2)
                 sumatoriaPetro += afinidadPetro[index];
-            /*else if (afinidadFajardo[num] == 1)
-                sumatoriaFajardo += 3;
-            else if (afinidadFajardo[num] == 0)
-                sumatoriaFajardo += 4;*/
+            else if (afinidadFajardo[index] == 1)
+                sumatoriaFajardo += 2;
+            else if (afinidadFajardo[index] == 0)
+                sumatoriaFajardo += 1;
         }
 }
 
@@ -165,7 +168,7 @@ function evaluacionAfinidad(){
 
     recomendacion.sort(function(a, b){return b.porcentaje-a.porcentaje});
     
-    console.log(recomendacion[0]);
+    //console.log(recomendacion[0]);
 }
 
 function evaluarImportanciaAcuerdo(num, tematica){
