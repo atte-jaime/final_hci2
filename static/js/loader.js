@@ -1,14 +1,8 @@
 //ArrayList Donde se guardan las preguntas para recomendacion
 var pollQuestionsProcesed = [];
-var embutidote = [];
 var kQuestionsProcesed = [];
 var correctas = 0;
 var malas = 0;
-
-var perritoUno = [];
-var perritoDos = [];
-var perritoTres = [];
-var perritoCuatro = [];
 
 $(document).ready(function () {
     //Gets the RAW JSON
@@ -59,7 +53,7 @@ $(document).ready(function () {
                 correcta: tempData.correcta,
             });
         }
-        console.log(kQuestionsProcesed);
+        //console.log(kQuestionsProcesed);
         addToCultural();
     });
 });
@@ -150,11 +144,6 @@ addToCultural = function () {
     var tres = String(kQuestionsProcesed[i].tres);
     var cuatro = String(kQuestionsProcesed[i].cuatro);
     var correcta = String(kQuestionsProcesed[i].correcta);
-    
-    perritoUno.push(uno);
-    perritoDos.push(dos);
-    perritoTres.push(tres);
-    perritoCuatro.push(cuatro);
 
     var seccion_preguntaCultura = document.createElement('div');
     seccion_preguntaCultura.className = 'preguntaCultura';
@@ -164,13 +153,13 @@ addToCultural = function () {
             <li>${'<b>Pregunta</b>: ' + cultural}</li> 
         </ul>
         <form id="quiz">
-            <input type = "radio" id="perritoUno" value="${uno}"></input>
+            <input type = "radio" id="perrito" value="${uno}"></input>
             <label>"${uno}"</label><br>
-            <input type = "radio" id="perritoDos" value="${dos}"></input>
+            <input type = "radio" id="perrito" value="${dos}"></input>
             <label>"${dos}"</label><br>
-            <input type = "radio" id="perritoTres" value="${tres}"></input>
+            <input type = "radio" id="perrito" value="${tres}"></input>
             <label>"${tres}"</label><br>
-            <input type = "radio" id="perritoCuatro" value="${cuatro}"></input>
+            <input type = "radio" id="perrito" value="${cuatro}"></input>
             <label>"${cuatro}"</label>
         </form>
     </div>
@@ -179,18 +168,28 @@ addToCultural = function () {
     document.getElementById("formulario-cultura").appendChild(seccion_preguntaCultura);
     }
 
+    kQuestionsProcesed.reverse();
+    for (index = 0; index < kQuestionsProcesed.length; index++) {
     var resultadoCultural = document.querySelector('.finalizar-form-cult');
     resultadoCultural.addEventListener('click', () => {
-        evaluarCulturales();
-
-        var textoRC = document.createElement('h2');
-        textoRC.innerHTML = `
-        ${'CORRECTAS: ' + correctas}<br>
-        ${'MALAS: ' + malas}`;
-        seccion_preguntaCultura.appendChild(textoRC);
-    });
+        document.querySelectorAll("#perrito").forEach((res) =>{
+                console.log(kQuestionsProcesed[index].correcta);
+                /*if (res.value === kQuestionsProcesed[index].correcta) {
+                    correctas ++;
+                } else {
+                    malas ++;
+                }*/
+            });
+        //evaluarCulturales();
+        });
+    }
+    var textoRC = document.createElement('h2');
+    textoRC.innerHTML = `
+    ${'CORRECTAS: ' + correctas}<br>
+    ${'MALAS: ' + malas}`;
+    seccion_preguntaCultura.appendChild(textoRC);
 }
-
+/*
 function evaluarCulturales() {
     kQuestionsProcesed.reverse();
     for (index = 0; index < kQuestionsProcesed.length; index++) {
@@ -221,6 +220,6 @@ function evaluarCulturales() {
         } else {
             malas ++;
             }
-        }*/
+        }
     }
-}
+}*/
