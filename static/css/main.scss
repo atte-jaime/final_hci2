@@ -19,6 +19,39 @@ button {
     margin: auto; //padding: 5% 0;
 }
 
+.resultado-candidato{
+    width: 40%;
+    position: relative;
+    margin: 0 auto;
+    .resultado-container{
+        margin: 15% auto;
+        .resultado{
+            margin-left: 240px;
+            background-color: #458fc7;
+            border: none;
+            border-radius: 42px;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 18px;
+            padding: 8px 21px;
+            text-decoration: none;
+            &:hover {
+                background-color: #4167d9;
+            }
+    
+            &:active {
+                position: relative;
+                top: 1px;
+            }
+        }
+    }
+
+    h1{
+        text-align: center;
+        margin: 15% auto;
+    }
+}
+
 #cultural {
     background-color: #f1f1f1;
     margin: 8% 0;

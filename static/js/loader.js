@@ -115,10 +115,10 @@ addToDom = function () {
     hacerSumatorias();
 
     var seccion_resultado = document.createElement('section');
-    seccion_resultado.className = 'resultado';
+    seccion_resultado.className = 'resultado-candidato';
     seccion_resultado.innerHTML = `
     <div class= "resultado-container">
-        <button class= "resultado">RESULTADO</button>
+        <button class= "resultado">Resultado</button>
     </div>
     `;
 
