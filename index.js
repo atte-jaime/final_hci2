@@ -48,10 +48,6 @@ var temasImportantes = [
     "tecnologia"
 ];
 
-$(document).ready(function () {
-    $('#fullpage').fullpage();
-});
-
 var addTemas = function () {
     for (i = 0; i < temas.length; i++) {
         const element = temas[i];

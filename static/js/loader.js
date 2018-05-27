@@ -82,30 +82,28 @@ addToDom = function () {
         afinidadPetro.push(petro);
 
         var seccion_pregunta = document.createElement('div');
-        seccion_pregunta.className = 'section pregunta';
+        seccion_pregunta.className = 'pregunta';
         seccion_pregunta.innerHTML = `
         <div class= "preguntas-container">
-            <ul>
-                <li>${'Tema: ' + tema}</li> 
-                <li>${'Pregunta: ' + pregunta}</li> 
-            </ul>
+            <h1>${'Tema: ' + tema}</h1> 
+            <p>${'<b>Pregunta</b>: ' + pregunta}</p>     
         </div> 
         <div class= "buttons-container">
             <button class= "disagree">Desacuerdo</button> 
             <button class= "agree">De acuerdo</button>
         </div>
         `;
-        
+
         //El innerHtml remplaza lo que tenga previamente el elemento (body para este caso), por ende solo veran la lista de los ultimos del ciclo. Para hacer buen uso de eso les recomiendo utilizar los appends y no innerHtml, pero ya es el gusto de cada quien.
-        document.getElementById("fullpage").appendChild(seccion_pregunta);
+        document.getElementById("wrapper").appendChild(seccion_pregunta);
     }
 
     preguntasTema.reverse();
 
-    document.querySelectorAll('.buttons-container').forEach(((btn, index)=>{
+    document.querySelectorAll('.buttons-container').forEach(((btn, index) => {
         var disagree = btn.querySelector('.disagree');
         disagree.addEventListener('click', () => {
-            sumarD(index, preguntasTema[index]); 
+            sumarD(index, preguntasTema[index]);
         });
 
         var agree = btn.querySelector('.agree');
@@ -117,44 +115,44 @@ addToDom = function () {
     hacerSumatorias();
 
     var seccion_resultado = document.createElement('section');
-    seccion_resultado.className = 'section resultado';
+    seccion_resultado.className = 'resultado';
     seccion_resultado.innerHTML = `
     <div class= "resultado-container">
         <button class= "resultado">RESULTADO</button>
     </div>
     `;
 
-    document.getElementById("fullpage").appendChild(seccion_resultado);
+    document.getElementById("wrapper").appendChild(seccion_resultado);
 
     var resultado = document.querySelector('.resultado');
-        resultado.addEventListener('click', () => {
-            evaluacionAfinidad();
+    resultado.addEventListener('click', () => {
+        evaluacionAfinidad();
 
-            var textoR = document.createElement('h1');
-            textoR.innerHTML= `${recomendacion[0].nombreC}`;
-            seccion_resultado.appendChild(textoR);
-        });
+        var textoR = document.createElement('h1');
+        textoR.innerHTML = `${recomendacion[0].nombreC}`;
+        seccion_resultado.appendChild(textoR);
+    });
 
 }
 
 addToCultural = function () {
     for (var i = kQuestionsProcesed.length - 1; i >= 0; i--) {
 
-    var cultural = kQuestionsProcesed[i].cultural;
-    var uno = kQuestionsProcesed[i].uno;
-    var dos = kQuestionsProcesed[i].dos;
-    var tres = kQuestionsProcesed[i].tres;
-    var cuatro = kQuestionsProcesed[i].cuatro;
-    var correcta = kQuestionsProcesed[i].correcta;
+        var cultural = kQuestionsProcesed[i].cultural;
+        var uno = kQuestionsProcesed[i].uno;
+        var dos = kQuestionsProcesed[i].dos;
+        var tres = kQuestionsProcesed[i].tres;
+        var cuatro = kQuestionsProcesed[i].cuatro;
+        var correcta = kQuestionsProcesed[i].correcta;
 
-    console.log(uno);
+        console.log(uno);
 
-    var seccion_preguntaCultura = document.createElement('div');
-    seccion_preguntaCultura.className = 'preguntaCultura';
-    seccion_preguntaCultura.innerHTML = `
+        var seccion_preguntaCultura = document.createElement('div');
+        seccion_preguntaCultura.className = 'preguntaCultura';
+        seccion_preguntaCultura.innerHTML = `
     <div class= "cultura-container">
         <ul>
-            <li>${'Pregunta: ' + cultural}</li> 
+            <li>${'<b>Pregunta</b>: ' + cultural}</li> 
         </ul>
         <form id="quiz">
             <input type = "radio" value="${uno}"></input>
@@ -168,8 +166,8 @@ addToCultural = function () {
         </form>
     </div>
     `;
-    
-    document.getElementById("cultural").appendChild(seccion_preguntaCultura);
+
+        document.getElementById("formulario-cultura").appendChild(seccion_preguntaCultura);
     }
     //evaluarCulturales();
 }
