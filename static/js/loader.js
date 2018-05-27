@@ -1,8 +1,14 @@
 //ArrayList Donde se guardan las preguntas para recomendacion
 var pollQuestionsProcesed = [];
+var embutidote = [];
 var kQuestionsProcesed = [];
 var correctas = 0;
 var malas = 0;
+
+var perritoUno = [];
+var perritoDos = [];
+var perritoTres = [];
+var perritoCuatro = [];
 
 $(document).ready(function () {
     //Gets the RAW JSON
@@ -138,48 +144,83 @@ addToDom = function () {
 addToCultural = function () {
     for (var i = kQuestionsProcesed.length - 1; i >= 0; i--) {
 
-        var cultural = kQuestionsProcesed[i].cultural;
-        var uno = kQuestionsProcesed[i].uno;
-        var dos = kQuestionsProcesed[i].dos;
-        var tres = kQuestionsProcesed[i].tres;
-        var cuatro = kQuestionsProcesed[i].cuatro;
-        var correcta = kQuestionsProcesed[i].correcta;
+    var cultural = kQuestionsProcesed[i].cultural;
+    var uno = String(kQuestionsProcesed[i].uno);
+    var dos = String(kQuestionsProcesed[i].dos);
+    var tres = String(kQuestionsProcesed[i].tres);
+    var cuatro = String(kQuestionsProcesed[i].cuatro);
+    var correcta = String(kQuestionsProcesed[i].correcta);
+    
+    perritoUno.push(uno);
+    perritoDos.push(dos);
+    perritoTres.push(tres);
+    perritoCuatro.push(cuatro);
 
-        console.log(uno);
-
-        var seccion_preguntaCultura = document.createElement('div');
-        seccion_preguntaCultura.className = 'preguntaCultura';
-        seccion_preguntaCultura.innerHTML = `
+    var seccion_preguntaCultura = document.createElement('div');
+    seccion_preguntaCultura.className = 'preguntaCultura';
+    seccion_preguntaCultura.innerHTML = `
     <div class= "cultura-container">
         <ul>
             <li>${'<b>Pregunta</b>: ' + cultural}</li> 
         </ul>
         <form id="quiz">
-            <input type = "radio" value="${uno}"></input>
+            <input type = "radio" id="perritoUno" value="${uno}"></input>
             <label>"${uno}"</label><br>
-            <input type = "radio" value="${dos}"></input>
+            <input type = "radio" id="perritoDos" value="${dos}"></input>
             <label>"${dos}"</label><br>
-            <input type = "radio" value="${tres}"></input>
+            <input type = "radio" id="perritoTres" value="${tres}"></input>
             <label>"${tres}"</label><br>
-            <input type = "radio" value="${cuatro}"></input>
+            <input type = "radio" id="perritoCuatro" value="${cuatro}"></input>
             <label>"${cuatro}"</label>
         </form>
     </div>
     `;
 
-        document.getElementById("formulario-cultura").appendChild(seccion_preguntaCultura);
+    document.getElementById("formulario-cultura").appendChild(seccion_preguntaCultura);
     }
-    //evaluarCulturales();
+
+    var resultadoCultural = document.querySelector('.finalizar-form-cult');
+    resultadoCultural.addEventListener('click', () => {
+        evaluarCulturales();
+
+        var textoRC = document.createElement('h2');
+        textoRC.innerHTML = `
+        ${'CORRECTAS: ' + correctas}<br>
+        ${'MALAS: ' + malas}`;
+        seccion_preguntaCultura.appendChild(textoRC);
+    });
 }
-/*
->>>>>>>>>>>>> ESTÁ FUNCION ES PARA QUE QUE HAGAS LA COMPARACIÓN ENTRE LA RESPUESTA SELECCIONADA DEL USUARIO Y LA RESPUESTA CORRECTA DEL DB
-pues me falta un btn de submit que es donde se va a hacer todode l event listener
+
 function evaluarCulturales() {
-    for (var i = kQuestionsProcesed.length - 1; i >= 0; i--) {
-        if (kQuestionsProcesed[i].correcta.trim() === respuesta del usuario del form.trim()) {
+    kQuestionsProcesed.reverse();
+    for (index = 0; index < kQuestionsProcesed.length; index++) {
+        if (kQuestionsProcesed[index].correcta === perritoUno[index]) {
+            correctas ++;
+        } else {
+            malas ++;
+        }/*
+        if(kQuestionsProcesed[index] == kQuestionsProcesed.length){
+        
+        if (kQuestionsProcesed[index].correcta === kQuestionsProcesed[index].uno) {
+            correctas ++;
+        } else {
+            malas ++;
+        } 
+        if (kQuestionsProcesed[index].correcta === kQuestionsProcesed[index].dos) {
             correctas ++;
         } else {
             malas ++;
         }
+        if (kQuestionsProcesed[index].correcta === kQuestionsProcesed[index].tres) {
+            correctas ++;
+        } else {
+            malas ++;
+        }
+        if (kQuestionsProcesed[index].correcta === kQuestionsProcesed[index].cuatro) {
+            correctas ++;
+        } else {
+            malas ++;
+            }
+        }*/
     }
-}*/
+}
