@@ -95,7 +95,7 @@ addToDom = function () {
         `;
 
         //El innerHtml remplaza lo que tenga previamente el elemento (body para este caso), por ende solo veran la lista de los ultimos del ciclo. Para hacer buen uso de eso les recomiendo utilizar los appends y no innerHtml, pero ya es el gusto de cada quien.
-        document.getElementById("wrapper").appendChild(seccion_pregunta);
+        document.getElementById("preguntas-total").appendChild(seccion_pregunta);
     }
 
     preguntasTema.reverse();
@@ -122,7 +122,7 @@ addToDom = function () {
     </div>
     `;
 
-    document.getElementById("wrapper").appendChild(seccion_resultado);
+    document.getElementById("preguntas-total").appendChild(seccion_resultado);
 
     var resultado = document.querySelector('.resultado');
     resultado.addEventListener('click', () => {
