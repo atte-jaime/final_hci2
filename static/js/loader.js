@@ -87,8 +87,8 @@ addToDom = function () {
         seccion_pregunta.className = 'pregunta';
         seccion_pregunta.innerHTML = `
         <div id ="chupela" class= "preguntas-container">
-            <h1>${'Tema: ' + tema}</h1>
-            <h2>${i + '/50'}</h2>
+            <h1>${tema}</h1>
+            <h2>${51-i + '/51'}</h2>
             <p>${'<b>Pregunta</b>: ' + pregunta}</p>     
         </div> 
         <div class= "buttons-container">
@@ -105,12 +105,14 @@ addToDom = function () {
 
     document.querySelectorAll('.buttons-container').forEach(((btn, index) => {
         var disagree = btn.querySelector('.disagree');
-        disagree.addEventListener('click', () => {
+        disagree.addEventListener('click', (e) => {
+            e.preventDefault();
             sumarD(index, preguntasTema[index]);
         });
 
         var agree = btn.querySelector('.agree');
-        agree.addEventListener('click', () => {
+        agree.addEventListener('click', (e) => {
+            e.preventDefault();
             sumarA(index, preguntasTema[index]);
         });
     }));

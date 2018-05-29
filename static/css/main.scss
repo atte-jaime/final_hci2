@@ -8,8 +8,34 @@ p {
     box-sizing: border-box;
 }
 
+a {
+    &:hover {
+        color: #c7455f;
+    }
+
+    &:link,
+    &:visited,
+    &:active {
+        text-decoration: none;
+    }
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
 button {
     border: none;
+    border-radius: 42px;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 18px;
+    padding: 8px 21px;
+    text-decoration: none;
 }
 
 #wrapper {
@@ -17,15 +43,36 @@ button {
     position: relative;
     width: 80%;
     margin: auto; //padding: 5% 0;
+    #intro {
+        height: 90vh;
+        margin: 5%;
+        display: flex;
+        flex-flow: column nowrap;
+        img {
+            margin: 3% auto;
+        }
+        p {
+            margin: 6% auto;
+            width: 60%;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        button {
+            position: relative;
+            margin: 0 auto;
+            width: 20%;
+            background-color: #202020;
+        }
+    }
 }
 
-.resultado-candidato{
+.resultado-candidato {
     width: 40%;
     position: relative;
     margin: 0 auto;
-    .resultado-container{
+    .resultado-container {
         margin: 15% auto;
-        .resultado{
+        .resultado {
             margin-left: 240px;
             background-color: #458fc7;
             border: none;
@@ -38,15 +85,13 @@ button {
             &:hover {
                 background-color: #4167d9;
             }
-    
             &:active {
                 position: relative;
                 top: 2px;
             }
         }
     }
-
-    h1{
+    h1 {
         text-align: center;
         margin: 15% auto;
     }
@@ -68,7 +113,7 @@ button {
     }
     .finalizar-form-cult {
         position: relative;
-        margin: auto;
+        margin: 0 auto;
         background-color: #458fc7;
         border: none;
         border-radius: 42px;
@@ -88,38 +133,77 @@ button {
 }
 
 #temas {
-    background-color: #f1f1f1;
-    margin: 5% 0;
+    background-image: url('../img/fondo2.png');
+    background-size: cover no-repeat;
+    margin: 10% 0;
     padding: 2% 0;
-    width: 100%;
-    height: 600px;
+    width: 1520px;
+    height: 900px;
+    p {
+        width: 60%;
+        font-size: 1.5rem;
+        text-align: center;
+        margin: 6% auto;
+    }
     h1 {
         text-align: center;
         margin: 5% auto;
     }
     .wrapper-preguntas {
+        padding-top: 2%;
+        margin: 0 auto;
+        width: 60%;
         display: flex;
         justify-content: space-around;
+        
+        .importancia{
+            padding-top: 6%;
+            padding-left: 6%;
+        }
     }
+
 }
 
 .pregunta {
     //border: 3px red solid;
-    background-color: #f1f1f1;
-    width: 100%;
-    height: 90vh;
-    margin: 5% 0;
+    background-image: url('../img/fondo.png');
+    background-size: cover no-repeat;
+    width: 1520px;
+    height: 880px;
+    margin: 10% 0;
     display: flex;
     justify-content: space-evenly;
     flex-flow: column nowrap;
     .preguntas-container {
-        margin: auto;
+        display: flex;
+        flex-flow: column nowrap;
+        margin: 0 auto;
         width: 60%; //border: 3px red solid;
+        h1{
+            text-transform: uppercase;
+            margin: 0 auto;
+            padding-top: 7%;
+            font-size: 4rem;
+            color: white;
+        }
+
+        h2{
+            color: white;
+            margin: 0 auto;
+        }
+
+        p{  
+            font-size: 1.2rem;
+            text-align: center;
+            width: 60%;
+            margin: 0 auto;
+            padding-top: 42%;
+        }
     }
     .buttons-container {
         display: flex;
         justify-content: space-evenly; //border: 3px red solid;
-        padding: 10%;
+        padding-top: 2%;
         .agree {
             background-color: #44c767;
             border-radius: 42px;

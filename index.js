@@ -54,7 +54,7 @@ var addTemas = function () {
         //console.log(temas[i]);
         if(typeof window !== 'undefined') {
         var tema = document.createElement("li");
-        tema.innerHTML = "<a href='#' onclick='addImport("+i+")'>"+element+" </a>";
+        tema.innerHTML = "<a onclick='addImport("+i+")'>"+element+" </a>";
         document.querySelector("#temas .temas ol").appendChild(tema);
         }
     }
