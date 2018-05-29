@@ -3,6 +3,7 @@ var pollQuestionsProcesed = [];
 var kQuestionsProcesed = [];
 var correctas = 0;
 var malas = 0;
+var contador = -1;
 
 $(document).ready(function () {
     //Gets the RAW JSON
@@ -11,7 +12,7 @@ $(document).ready(function () {
         var pollQuestionData = [];
         //Gets the key entries from the raw json
         pollQuestionData = Object.entries(data);
-        //console.log(pollQuestionData);
+        //console.log(pollQuestionData[]);
         for (var i = pollQuestionData.length - 1; i >= 0; i--) {
             //Gets the iteated object from the entries array 
             tempContainer = pollQuestionData[i];
@@ -60,6 +61,7 @@ $(document).ready(function () {
 
 //Method that add the poll question arrays to the dom (Solo es a modo de ejemplo pues ya teniendo el array de preguntas deben aplicar su propia logica)
 addToDom = function () {
+    
     /*console.log("Callme");
     console.log("Array length: ", pollQuestionsProcesed.length);*/
     for (var i = pollQuestionsProcesed.length - 1; i >= 0; i--) {
@@ -84,8 +86,9 @@ addToDom = function () {
         var seccion_pregunta = document.createElement('div');
         seccion_pregunta.className = 'pregunta';
         seccion_pregunta.innerHTML = `
-        <div class= "preguntas-container">
-            <h1>${'Tema: ' + tema}</h1> 
+        <div id ="chupela" class= "preguntas-container">
+            <h1>${'Tema: ' + tema}</h1>
+            <h2>${i + '/50'}</h2>
             <p>${'<b>Pregunta</b>: ' + pregunta}</p>     
         </div> 
         <div class= "buttons-container">
@@ -133,6 +136,8 @@ addToDom = function () {
         seccion_resultado.appendChild(textoR);
     });
 
+
+    
 }
 
 addToCultural = function () {
@@ -145,6 +150,8 @@ addToCultural = function () {
     var cuatro = String(kQuestionsProcesed[i].cuatro);
     var correcta = String(kQuestionsProcesed[i].correcta);
 
+    //console.log("PUTA: " + correcta);
+
     var seccion_preguntaCultura = document.createElement('div');
     seccion_preguntaCultura.className = 'preguntaCultura';
     seccion_preguntaCultura.innerHTML = `
@@ -153,13 +160,13 @@ addToCultural = function () {
             <li>${'<b>Pregunta</b>: ' + cultural}</li> 
         </ul>
         <form id="quiz">
-            <input type = "radio" id="perrito" value="${uno}"></input>
+            <input type="radio" id="perrito" value="${uno}"></input>
             <label>"${uno}"</label><br>
-            <input type = "radio" id="perrito" value="${dos}"></input>
+            <input type="radio" id="perrito" value="${dos}"></input>
             <label>"${dos}"</label><br>
-            <input type = "radio" id="perrito" value="${tres}"></input>
+            <input type="radio" id="perrito" value="${tres}"></input>
             <label>"${tres}"</label><br>
-            <input type = "radio" id="perrito" value="${cuatro}"></input>
+            <input type="radio" id="perrito" value="${cuatro}"></input>
             <label>"${cuatro}"</label>
         </form>
     </div>
@@ -169,25 +176,33 @@ addToCultural = function () {
     }
 
     kQuestionsProcesed.reverse();
-    for (index = 0; index < kQuestionsProcesed.length; index++) {
+    //for (index = 0; index < kQuestionsProcesed.length; index++) {
     var resultadoCultural = document.querySelector('.finalizar-form-cult');
     resultadoCultural.addEventListener('click', () => {
-        document.querySelectorAll("#perrito").forEach((res) =>{
-                console.log(kQuestionsProcesed[index].correcta);
-                /*if (res.value === kQuestionsProcesed[index].correcta) {
-                    correctas ++;
-                } else {
-                    malas ++;
-                }*/
+        document.querySelectorAll(".cultura-container").forEach((res) =>{
+            contador ++;
+            console.log("A LA MIERDA")
+            res.querySelectorAll("#perrito").forEach(valor =>{
+                console.log("CON ESTA  PUTA MIERDA")
+                if (res.checked) {
+                    console.log("CON ESTA  PUTA MIERDA")
+                    if (valor.value === kQuestionsProcesed[contador].correcta) {
+                        correctas ++;
+                        //console.log("correcto");
+                    } else {
+                        malas ++;
+                        }
+                    }
+                });
             });
         //evaluarCulturales();
+        var textoRC = document.createElement('h2');
+        textoRC.innerHTML = `
+        ${'CORRECTAS: ' + correctas}<br>
+        ${'MALAS: ' + malas}`;
+        seccion_preguntaCultura.appendChild(textoRC);
         });
-    }
-    var textoRC = document.createElement('h2');
-    textoRC.innerHTML = `
-    ${'CORRECTAS: ' + correctas}<br>
-    ${'MALAS: ' + malas}`;
-    seccion_preguntaCultura.appendChild(textoRC);
+    // }
 }
 /*
 function evaluarCulturales() {
