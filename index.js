@@ -75,7 +75,7 @@ function addImport(a) {
 
 function sumarA(numPregunta, tematica) {
     evaluarImportanciaAcuerdo(numPregunta, tematica);
-    console.log((contenedorFajardo*100)/sumatoriaFajardo)
+    //console.log((contenedorFajardo*100)/sumatoriaFajardo)
 }
 
 function sumarD(numPregunta, tematica) {
@@ -164,7 +164,7 @@ function evaluacionAfinidad(){
 
     recomendacion.sort(function(a, b){return b.porcentaje-a.porcentaje});
     
-    //console.log(recomendacion[0]);
+    console.log(recomendacion);
 }
 
 function evaluarImportanciaAcuerdo(num, tematica){
