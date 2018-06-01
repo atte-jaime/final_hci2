@@ -61,7 +61,7 @@ $(document).ready(function () {
 
 //Method that add the poll question arrays to the dom (Solo es a modo de ejemplo pues ya teniendo el array de preguntas deben aplicar su propia logica)
 addToDom = function () {
-    
+
     /*console.log("Callme");
     console.log("Array length: ", pollQuestionsProcesed.length);*/
     for (var i = pollQuestionsProcesed.length - 1; i >= 0; i--) {
@@ -134,76 +134,118 @@ addToDom = function () {
         evaluacionAfinidad();
 
         var textoR = document.createElement('h1');
+        textoR.id = 'candidato';
         textoR.innerHTML = `${recomendacion[0].nombreC}`;
         seccion_resultado.appendChild(textoR);
+        if (recomendacion[0].nombreC == "Sergio Fajardo") {
+            swal({
+                imageUrl: './static/img/fajardo.png',
+                imageHeight: 700,
+                width: 1100,
+                imageAlt: 'Sergio Fajardo'
+            })
+        } else if (recomendacion[0].nombreC == "Gustavo Petro") {
+            swal({
+                imageUrl: './static/img/petro.png',
+                imageHeight: 700,
+                width: 1100,
+                imageAlt: 'Gustavo Petro'
+            })
+        } else if (recomendacion[0].nombreC == "Humberto de la Calle") {
+            swal({
+                imageUrl: './static/img/humberto.png',
+                imageHeight: 700,
+                width: 1100,
+                imageAlt: 'Humberto de la Calle'
+            })
+        } else if (recomendacion[0].nombreC == "Ivan Duque") {
+            swal({
+                imageUrl: './static/img/porky.png',
+                imageHeight: 700,
+                width: 1100,
+                imageAlt: 'Iván Duque'
+            })
+        } else if (recomendacion[0].nombreC == "German Vargas Lleras") {
+            swal({
+                imageUrl: './static/img/lleras.png',
+                imageHeight: 700,
+                width: 1100,
+                imageAlt: 'Germán Vargas Lleras'
+            })
+        }
     });
 
 
-    
+
 }
 
 addToCultural = function () {
     for (var i = kQuestionsProcesed.length - 1; i >= 0; i--) {
 
-    var cultural = kQuestionsProcesed[i].cultural;
-    var uno = String(kQuestionsProcesed[i].uno);
-    var dos = String(kQuestionsProcesed[i].dos);
-    var tres = String(kQuestionsProcesed[i].tres);
-    var cuatro = String(kQuestionsProcesed[i].cuatro);
-    var correcta = String(kQuestionsProcesed[i].correcta);
+        var cultural = kQuestionsProcesed[i].cultural;
+        var uno = String(kQuestionsProcesed[i].uno);
+        var dos = String(kQuestionsProcesed[i].dos);
+        var tres = String(kQuestionsProcesed[i].tres);
+        var cuatro = String(kQuestionsProcesed[i].cuatro);
+        var correcta = String(kQuestionsProcesed[i].correcta);
 
-    //console.log("PUTA: " + correcta);
+        //console.log("PUTA: " + correcta);
 
-    var seccion_preguntaCultura = document.createElement('div');
-    seccion_preguntaCultura.className = 'preguntaCultura';
-    seccion_preguntaCultura.innerHTML = `
+        var seccion_preguntaCultura = document.createElement('div');
+        seccion_preguntaCultura.className = 'preguntaCultura';
+        seccion_preguntaCultura.innerHTML = `
     <div class= "cultura-container">
         <ul>
             <li>${'<b>Pregunta</b>: ' + cultural}</li> 
         </ul>
         <form id="quiz">
+            <div>
             <input type="radio" id="perrito" value="${uno}"></input>
             <label>"${uno}"</label><br>
             <input type="radio" id="perrito" value="${dos}"></input>
             <label>"${dos}"</label><br>
+            </div>
+            <div>
             <input type="radio" id="perrito" value="${tres}"></input>
             <label>"${tres}"</label><br>
             <input type="radio" id="perrito" value="${cuatro}"></input>
             <label>"${cuatro}"</label>
+            </div>
         </form>
     </div>
     `;
 
-    document.getElementById("formulario-cultura").appendChild(seccion_preguntaCultura);
+        document.getElementById("formulario-cultura").appendChild(seccion_preguntaCultura);
     }
 
     kQuestionsProcesed.reverse();
     //for (index = 0; index < kQuestionsProcesed.length; index++) {
     var resultadoCultural = document.querySelector('.finalizar-form-cult');
     resultadoCultural.addEventListener('click', () => {
-        document.querySelectorAll(".cultura-container").forEach((res) =>{
-            contador ++;
+        document.querySelectorAll(".cultura-container").forEach((res) => {
+            contador++;
             console.log("A LA MIERDA")
-            res.querySelectorAll("#perrito").forEach(valor =>{
+            res.querySelectorAll("#perrito").forEach(valor => {
                 console.log("CON ESTA  PUTA MIERDA")
                 if (res.checked) {
                     console.log("CON ESTA  PUTA MIERDA")
                     if (valor.value === kQuestionsProcesed[contador].correcta) {
-                        correctas ++;
+                        correctas++;
                         //console.log("correcto");
                     } else {
-                        malas ++;
-                        }
+                        malas++;
                     }
-                });
+                }
             });
+        });
         //evaluarCulturales();
         var textoRC = document.createElement('h2');
+        textoRC.className = 'resultado-form';
         textoRC.innerHTML = `
-        ${'CORRECTAS: ' + correctas}<br>
+        ${'CORRECTAS: ' + correctas}</br>
         ${'MALAS: ' + malas}`;
-        seccion_preguntaCultura.appendChild(textoRC);
-        });
+        document.getElementById('formulario-cultura').appendChild(textoRC);
+    });
     // }
 }
 /*

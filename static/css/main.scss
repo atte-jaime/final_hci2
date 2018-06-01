@@ -98,8 +98,8 @@ button {
 }
 
 #cultural {
-    background-color: #f1f1f1;
-    margin: 8% 0;
+    position: relative;
+    margin: 8% auto ;
     padding: 2%;
     h1 {
         text-align: center;
@@ -109,25 +109,40 @@ button {
         .preguntaCultura {
             width: 60%;
             margin: 6% auto;
+            
+            #quiz{
+                padding-top: 5%;
+                display: flex;
+                justify-content: space-around;
+            }
+        }
+
+        .resultado-form{
+            text-align: center;
         }
     }
-    .finalizar-form-cult {
+    .fin-button{
         position: relative;
         margin: 0 auto;
-        background-color: #458fc7;
-        border: none;
-        border-radius: 42px;
-        color: #ffffff;
-        font-family: Arial;
-        font-size: 18px;
-        padding: 8px 21px;
-        text-decoration: none;
-        &:hover {
-            background-color: #4167d9;
-        }
-        &:active {
+        width: 5%;
+        .finalizar-form-cult {
             position: relative;
-            top: 2px;
+            margin: 0 auto;
+            background-color: #458fc7;
+            border: none;
+            border-radius: 42px;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 18px;
+            padding: 8px 21px;
+            text-decoration: none;
+            &:hover {
+                background-color: #4167d9;
+            }
+            &:active {
+                position: relative;
+                top: 2px;
+            }
         }
     }
 }
